@@ -49,6 +49,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RobotSimulation", "RobotSim
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RecoverNetwork", "RecoverNetwork\RecoverNetwork.vcxproj", "{FD7D942A-D1A5-43E2-A93B-8ED2B1B3F1D9}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Pooling", "Pulling\Pulling.vcxproj", "{5EFA9058-E2AE-4655-8FC1-DD384BF84A02}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -241,6 +243,14 @@ Global
 		{FD7D942A-D1A5-43E2-A93B-8ED2B1B3F1D9}.Release|x64.Build.0 = Release|x64
 		{FD7D942A-D1A5-43E2-A93B-8ED2B1B3F1D9}.Release|x86.ActiveCfg = Release|Win32
 		{FD7D942A-D1A5-43E2-A93B-8ED2B1B3F1D9}.Release|x86.Build.0 = Release|Win32
+		{5EFA9058-E2AE-4655-8FC1-DD384BF84A02}.Debug|x64.ActiveCfg = Debug|x64
+		{5EFA9058-E2AE-4655-8FC1-DD384BF84A02}.Debug|x64.Build.0 = Debug|x64
+		{5EFA9058-E2AE-4655-8FC1-DD384BF84A02}.Debug|x86.ActiveCfg = Debug|Win32
+		{5EFA9058-E2AE-4655-8FC1-DD384BF84A02}.Debug|x86.Build.0 = Debug|Win32
+		{5EFA9058-E2AE-4655-8FC1-DD384BF84A02}.Release|x64.ActiveCfg = Release|x64
+		{5EFA9058-E2AE-4655-8FC1-DD384BF84A02}.Release|x64.Build.0 = Release|x64
+		{5EFA9058-E2AE-4655-8FC1-DD384BF84A02}.Release|x86.ActiveCfg = Release|Win32
+		{5EFA9058-E2AE-4655-8FC1-DD384BF84A02}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
