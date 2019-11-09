@@ -1,4 +1,0 @@
-﻿  main.cpp
-c:\users\todor\source\repos\alps\walkandbeer\main.cpp(59): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-c:\users\todor\source\repos\alps\walkandbeer\main.cpp(135): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-  WalkAndBeer.vcxproj -> C:\Users\todor\source\repos\Alps\Debug\WalkAndBeer.exe
