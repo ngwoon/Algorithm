@@ -1,0 +1,4 @@
+﻿  main.cpp
+c:\users\todor\source\repos\alps\seongbum_interview\main.cpp(18): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\todor\source\repos\alps\seongbum_interview\main.cpp(33): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  SeongBum_Interview.vcxproj -> C:\Users\todor\source\repos\Alps\Debug\SeongBum_Interview.exe

@@ -1,0 +1,13 @@
+﻿  DragonCurve.cpp
+  IloveCroatia.cpp
+  Jail.cpp
+c:\users\todor\source\repos\alps\simulation\jail.cpp(51): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  MoveLog.cpp
+  Pooling.cpp
+  코드를 생성하고 있습니다...
+IloveCroatia.obj : error LNK2005: _main이(가) DragonCurve.obj에 이미 정의되어 있습니다.
+Jail.obj : error LNK2005: _main이(가) DragonCurve.obj에 이미 정의되어 있습니다.
+MoveLog.obj : error LNK2005: _main이(가) DragonCurve.obj에 이미 정의되어 있습니다.
+Pooling.obj : error LNK2005: _main이(가) DragonCurve.obj에 이미 정의되어 있습니다.
+Rollcake.obj : error LNK2005: _main이(가) DragonCurve.obj에 이미 정의되어 있습니다.
+C:\Users\todor\source\repos\Alps\Debug\Simulation.exe : fatal error LNK1169: 여러 번 정의된 기호가 있습니다.

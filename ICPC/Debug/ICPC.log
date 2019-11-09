@@ -1,8 +1,8 @@
-﻿  main.cpp
-c:\users\todor\source\repos\alps\icpc\main.cpp(25): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-c:\users\todor\source\repos\alps\icpc\main.cpp(41): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-c:\users\todor\source\repos\alps\icpc\main.cpp(54): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-c:\users\todor\source\repos\alps\icpc\main.cpp(71): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-c:\users\todor\source\repos\alps\icpc\main.cpp(82): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-c:\users\todor\source\repos\alps\icpc\main.cpp(107): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+﻿  DFSBFS.cpp
+c:\users\todor\source\repos\alps\icpc\dfsbfs.cpp(25): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\todor\source\repos\alps\icpc\dfsbfs.cpp(41): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\todor\source\repos\alps\icpc\dfsbfs.cpp(54): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\todor\source\repos\alps\icpc\dfsbfs.cpp(71): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\todor\source\repos\alps\icpc\dfsbfs.cpp(82): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\todor\source\repos\alps\icpc\dfsbfs.cpp(107): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
   ICPC.vcxproj -> C:\Users\todor\source\repos\Alps\Debug\DFSBFS.exe
