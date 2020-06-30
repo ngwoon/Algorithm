@@ -1,6 +1,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+/*
+    9663 - N-Queen
+    
+    백트래킹의 대표적인 문제.
+
+    퀸을 하나 둘 때마다 둘 수 없게되는 좌표를 누적 표기하여 풀었다.
+*/
+
 int field[16][16];
 int ans, n;
 
@@ -51,7 +59,7 @@ void block(int y, int x, int flag) {
     i=y-1; j=x+1;
     while(i >= 1 && j <= n)
         field[i--][j++] += flag;
-}
+}   
 
 void dfs(int y) {
     if(y == n+1) { ++ans; return; }
