@@ -1,48 +1,3 @@
-// #include <bits/stdc++.h>
-// using namespace std;
-
-// int heap[100001];
-// int lastIndex;
-// string ans;
-
-
-// int main(void) {
-//     int n;
-//     scanf("%d", &n);
-//     heap[0] = 1000001;
-//     while(n--) {
-//         int num;
-//         scanf("%d", &num);
-
-//         // push
-//         heap[++lastIndex] = num;
-
-//         int child = lastIndex;
-//         int parent = child / 2;
-//         while(parent >= 1 && heap[child] < heap[parent]) {
-//             heap[child] ^= heap[parent];
-//             heap[parent] ^= heap[child];
-//             heap[child] ^= heap[parent];
-//             child = parent;
-//             parent = child / 2;
-//         }
-
-//         printf("======================\n");
-//         for(int i=1; i<=lastIndex; ++i)
-//             printf("%d ", heap[i]);
-//         printf("\n");
-
-//         if(lastIndex % 2 == 1)
-//             ans.append(to_string(heap[lastIndex/2 + 1]) + "\n");
-//         else
-//             ans.append(to_string(heap[lastIndex/2]) + "\n");
-//     }
-
-//     printf("%s", ans.c_str());
-// }
-
-
-
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -55,7 +10,13 @@ using namespace std;
 
     lower_bound를 사용하여 이분탐색으로 탐색 시간을 줄였지만, 약 800ms로 시간복잡도가 꽤 큰 결과가 나왔다.
     
-    개선 방법을 생각할 필요가 있는 코드.
+    
+    2020-07-02 개선한 코드
+    중간값을 찾아내는 과정을 줄이기 위해, 입력받는 수를 bq, sq에 나누어 담는다.
+    bq, sq는 우선순위 큐이며, bq는 작은 수가 높은 우선순위를, sq는 높은 수가 높은 우선순위를 갖게 하여
+    수 입력을 받았을 때 bq.top과 sq.top으로 중간값을 비교할 수 있도록 한다.
+
+    아울러 bq와 sq의 요소 개수 차가 1을 넘지 않도록 조정해주어 항상 sq.top이 중간값이 될 수 있도록 한다.
 */
 
 vector<int> nums;
@@ -76,3 +37,44 @@ int main(void) {
     }
     printf("%s", ans.c_str());
 }
+
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// priority_queue<int, vector<int>, greater<int>> bq;
+// priority_queue<int, vector<int>> sq;
+// string ans;
+
+// int main(void) {
+//     int n;
+//     scanf("%d", &n);
+//     while(n--) {
+//         int num;
+//         scanf(" %d", &num);
+
+//         if(sq.empty()) {
+//             sq.push(num);
+//             ans.append(to_string(num) + "\n");
+//         } else {
+//             if(sq.size() > bq.size()) {
+//                 if(sq.top() <= num) {
+//                     bq.push(num);
+//                 } else {
+//                     bq.push(sq.top());
+//                     sq.pop();
+//                     sq.push(num);
+//                 }
+//             } else {
+//                 if(bq.top() > num)
+//                     sq.push(num);
+//                 else {
+//                     sq.push(bq.top());
+//                     bq.pop();
+//                     bq.push(num);
+//                 }
+//             }
+//             ans.append(to_string(sq.top()) + "\n");
+//         }
+//     }
+//     printf("%s", ans.c_str());
+// }
