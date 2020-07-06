@@ -32,7 +32,6 @@ int main(void) {
     scanf("%d", &n);
     for(int i=1; i<=n; ++i) scanf("%d", &seq[i]);
 
-    dp[n] = 1;
     for(int i=1; i<=n; ++i)
         solve(i);
 
@@ -43,3 +42,33 @@ int main(void) {
     }
     printf("%d", maxVal);
 }
+
+
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int seq[1001];
+// int n, ans;
+
+// void solve(int index, int length) {
+//     if(index == n-1) {
+//         ans = max(ans, length);
+//         return;
+//     }
+
+//     for(int i=index+1; i<n; ++i) {
+//         if(seq[index] < seq[i])
+//             solve(i, length + 1);
+//     }
+// }
+
+// int main(void) {
+//     scanf("%d", &n);
+//     for(int i=0; i<n; ++i)
+//         scanf("%d", &seq[i]);
+    
+//     for(int i=0; i<n; ++i)
+//         solve(i, 1);
+
+//     printf("%d", ans);
+// }
