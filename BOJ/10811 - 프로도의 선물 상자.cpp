@@ -21,7 +21,7 @@ int parallel(int a, int b, int c) {
 int main(void) {
     scanf("%d", &t);
     for(int i=0; i<t; ++i) {
-        ans = INF;  
+        ans = INF;
         for(int j=0; j<3; ++j) {
             scanf("%d %d", &rect[j].first, &rect[j].second);
             rect[j + 3].first = rect[j].second;

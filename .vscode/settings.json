@@ -2,6 +2,8 @@
     "files.associations": {
         "*.tcc": "cpp",
         "algorithm": "cpp",
-        "regex": "cpp"
+        "regex": "cpp",
+        "cmath": "cpp",
+        "complex": "cpp"
     }
 }
