@@ -7,6 +7,23 @@ int seq[100000];
 long long ans;
 int ansTwo;
 
+void check(int idx, int& nowTwo, int& nowMinus) {
+    if(seq[idx] == 0) { 
+        nowTwo=0; nowMinus=0; 
+        return; 
+    }
+    else if(seq[idx] < 0) {
+        ++nowMinus;
+        if(seq[idx] == -2) ++nowTwo;
+    }
+    else if(seq[idx] == 2) ++nowTwo;
+
+    if(nowMinus % 2 == 0) {
+        ansTwo = ansTwo < nowTwo ? nowTwo : ansTwo;
+        ans = 1;
+    }
+}
+
 int main(void) {
     int t;
     scanf("%d", &t);
@@ -23,34 +40,12 @@ int main(void) {
         }
 
         int nowTwo=0, nowMinus=0;
-        for(int i=0; i<n; ++i) {
-            if(seq[i] == 0) { nowTwo=0; nowMinus=0; continue; }
-            else if(seq[i] < 0) {
-                ++nowMinus;
-                if(seq[i] == -2) ++nowTwo;
-            }
-            else if(seq[i] == 2) ++nowTwo;
-
-            if(nowMinus % 2 == 0) {
-                ansTwo = ansTwo < nowTwo ? nowTwo : ansTwo;
-                ans = 1;
-            }
-        }
-
+        for(int i=0; i<n; ++i)
+            check(i, nowTwo, nowMinus);
+        
         nowTwo=0; nowMinus=0;
-        for(int i=n-1; i>=0; --i) {
-            if(seq[i] == 0) { nowTwo=0; nowMinus=0; continue; }
-            else if(seq[i] < 0) {
-                ++nowMinus;
-                if(seq[i] == -2) ++nowTwo;
-            }
-            else if(seq[i] == 2) ++nowTwo;
-
-            if(nowMinus % 2 == 0) {
-                ansTwo = ansTwo < nowTwo ? nowTwo : ansTwo;
-                ans = 1;
-            }
-        }
+        for(int i=n-1; i>=0; --i)
+            check(i, nowTwo, nowMinus);
 
         while(ansTwo--)
             ans = (ans << 1) % MAX;

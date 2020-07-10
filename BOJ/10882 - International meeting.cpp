@@ -1,4 +1,6 @@
-#include <bits/stdc++.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 int main(void) {
     int n;
@@ -26,7 +28,12 @@ int main(void) {
         minTime -= 1440;
 
     for(int i=0; i<n; ++i) {
-        scanf("%s", utc);
+        memset(utc, '\0', 8);
+        memset(utcGap, '\0', 5);
+
+        scanf(" %s", utc);
+
+        printf("utc : %s\n", utc);
 
         strcpy(utcGap, utc + 3);
         gap = atof(utcGap);
