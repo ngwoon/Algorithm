@@ -43,6 +43,7 @@ int main(void) {
                 h = height[j];
             if(h > startHeight[j])
                 startHeight[j] = h;
+            
         }
 
         // 우 갱신
