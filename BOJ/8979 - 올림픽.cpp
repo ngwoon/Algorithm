@@ -44,12 +44,6 @@ int main(void) {
 
     sort(score, score+n, cmp);
 
-    printf("\n");
-    for(int i=0; i<n; ++i) {
-        printf("%d %d %d %d\n", score[i].country, score[i].gold, score[i].silver, score[i].bronze);
-    }
-    printf("\n");
-
     int idx=1;
     if(k != score[n-1].country) {
         for(int i=n-2; i>=0; --i) {
