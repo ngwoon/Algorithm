@@ -31,8 +31,6 @@ int main(void) {
         sink.push_back(sx);
     }
 
-    sort(sink.begin(), sink.end());
-
     horiz = height.size();
     for(int i=0; i<sink.size(); ++i) {
         int h = height[sink[i]];
