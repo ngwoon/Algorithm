@@ -15,6 +15,9 @@
         "string": "cpp",
         "vector": "cpp",
         "ratio": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "list": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp"
     }
 }
