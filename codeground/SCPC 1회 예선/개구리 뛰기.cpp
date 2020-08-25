@@ -1,27 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define IMP 2000000000
-
-int dp[1000001];
 int pos[1000001];
 int n,k;
-
-int solve(int idx) {
-    if(idx == n)
-        return 0;
-    
-    int& ret = dp[idx];
-    if(ret == -1) {
-        ret = IMP;
-        ++idx;
-        while(idx <= n && pos[idx]-pos[idx-1] <= k) {
-            ret = min(ret, solve(idx) + 1);
-            ++idx;
-        }   
-    }
-    return ret;
-}
 
 int main(void)
 {
@@ -33,13 +14,11 @@ int main(void)
 	{
         scanf("%d", &n);
 
-        memset(dp, -1, n+1);
         for(int i=1; i<=n; ++i)
             scanf("%d", &pos[i]);
 
         scanf("%d", &k);
 
-        // solve(0);
         int idx=0, cnt=0;
         while(idx != n) {
             int jump=1;
