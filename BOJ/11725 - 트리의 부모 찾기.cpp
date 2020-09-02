@@ -7,9 +7,6 @@ vector<bool> visited;
 vector<int> parentArr;
 
 void dfs(int cur, int parent) {
-
-    printf("cur : %d, parent : %d\n", cur, parent);
-
     if(parent != -1)
         parentArr[cur] = parent;
     
