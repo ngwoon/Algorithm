@@ -1,16 +1,26 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int dx[4] = {0,-1,0,1};
-int dy[4] = {-1,0,1,0};
+int dx[4] = {0,-1,1,0};
+int dy[4] = {-1,0,0,1};
 
 struct info {
-    int y, x, m; // move, size
+    int y, x, m;
+};
+
+struct comp {
+    bool operator() (struct info& a, struct info& b) {
+        if(a.m != b.m)
+            return a.m > b.m;
+        else if(a.y == b.y)
+            return a.x > b.x;
+        return a.y > b.y;
+    }
 };
 
 vector<vector<int>> field;
 vector<vector<bool>> visited;
-queue<struct info> que;
+priority_queue<struct info, vector<struct info>, comp> que;
 int n,y,x,ans,curEat,curSize=2;
 
 bool bfs() {
@@ -18,9 +28,9 @@ bool bfs() {
     que.push({y, x, 0});
 
     while(!que.empty()) {
-        int cy = que.front().y;
-        int cx = que.front().x;
-        int m = que.front().m;
+        int cy = que.top().y;
+        int cx = que.top().x;
+        int m = que.top().m;
         que.pop();
 
         if(field[cy][cx] > 0 && field[cy][cx] < curSize) {
@@ -30,8 +40,6 @@ bool bfs() {
             if(curEat == curSize) {
                 ++curSize; curEat=0;
             }
-
-            printf("y, x, m, curSize : %d %d %d %d\n", y, x, m, curSize);
 
             while(!que.empty())
                 que.pop();

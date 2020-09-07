@@ -19,6 +19,7 @@
         "list": "cpp",
         "unordered_map": "cpp",
         "unordered_set": "cpp",
-        "tuple": "cpp"
+        "tuple": "cpp",
+        "forward_list": "cpp"
     }
 }
