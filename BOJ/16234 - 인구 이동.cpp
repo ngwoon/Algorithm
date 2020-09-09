@@ -66,12 +66,12 @@ int main(void) {
                 if(visited[i][j]) continue;
                 if(bfs(i,j)) {
                     allComp=false;
-                    ++ans;
                 }
             }
         }
         if(allComp)
             break;
+        ++ans;
         for(int i=0; i<n; ++i)
             memset(visited[i], false, n);
     }
