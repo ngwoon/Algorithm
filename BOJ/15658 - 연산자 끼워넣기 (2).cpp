@@ -4,7 +4,7 @@ using namespace std;
 vector<int> num;
 int operators[4];
 int n;
-int maxVal = -100000001, minVal = 100000001;
+int maxVal = -1000000001, minVal = 1000000001;
 
 void dfs(int idx, int res) {
     if(idx == n) {
