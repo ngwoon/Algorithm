@@ -54,6 +54,8 @@ function bfs(map) {
         visited[ny][nx] = true;
         que.enqueue({"y": ny, "x": nx, "cnt": cnt + 1});
     }
+
+    return 30;
 }
 
 var inputs = readline().split(' ');
