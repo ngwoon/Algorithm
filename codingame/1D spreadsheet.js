@@ -33,12 +33,10 @@ function checkDependency(arg) {
 }
 
 function calc(idx) {
-    console.error(`idx : ${idx}`);
     const cur = wait[idx];
     const operation = cur.operation;
     const arg1 = cur.arg1;
     const arg2 = cur.arg2;
-    const i = cur.idx;
 
     if(operation === "VALUE") {
         const res = checkDependency(arg1);
