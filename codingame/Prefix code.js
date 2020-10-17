@@ -16,7 +16,7 @@ function search() {
         let found = false;
         for(key of Object.keys(table)) {
             const idx = s.indexOf(key, curIdx);
-            if(idx == curIdx) {
+            if(idx === curIdx) {
                 decoded += table[key];
                 curIdx += key.length;
                 found = true;
@@ -28,13 +28,7 @@ function search() {
             break;
         }
     }
-    let retData;
-    if(done)
-        retData = decoded;
-    else
-        retData = "DECODE FAIL AT INDEX " + curIdx;
-
-    return retData;
+    return done ? decoded : "DECODE FAIL AT INDEX " + curIdx;
 }
 
 console.log(search());
