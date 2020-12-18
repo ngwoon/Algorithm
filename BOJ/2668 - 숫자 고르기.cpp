@@ -7,7 +7,7 @@ vector<bool> ans;
 int main(void) {
     cin.sync_with_stdio(false);
     
-    int n;
+    int 
     scanf("%d", &n);
 
     adj.resize(n+1);
