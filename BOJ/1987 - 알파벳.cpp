@@ -4,7 +4,7 @@ using namespace std;
 int dx[4] = {1,-1,0,0};
 int dy[4] = {0,0,1,-1};
 
-vector<int> visited;
+vector<bool> visited;
 int ans,r,c;
 char field[20][20];
 
@@ -19,12 +19,12 @@ void dfs(int y, int x, int cnt) {
         if(ny < 0 || ny >= r || nx < 0 || nx >= c)
             continue;
         
-        if(visited[field[ny][nx]-'A'] != 0)
+        if(visited[field[ny][nx]-'A'])
             continue;
 
-        visited[field[ny][nx]-'A'] += 1;
+        visited[field[ny][nx]-'A'] = true;
         dfs(ny, nx, cnt+1);
-        visited[field[ny][nx]-'A'] -= 1;
+        visited[field[ny][nx]-'A'] = false;
     }
 }
 
@@ -38,7 +38,7 @@ int main(void) {
 
     visited.resize(26, 0);
 
-    visited[field[0][0]-'A'] += 1;
+    visited[field[0][0]-'A'] = true;
     dfs(0,0,1);
 
     printf("%d", ans);
