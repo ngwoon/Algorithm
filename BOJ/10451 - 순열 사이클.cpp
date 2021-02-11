@@ -48,26 +48,25 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<int> adj;
-vector<bool> visited;
-int t,n,ans;
-
-
-void search(int num) {
+void search(int num, vector<int>& adj, vector<bool>& visited) {
     int cur = num;
     while(!visited[cur]) {
         visited[cur] = true;
         cur = adj[cur];
     }
-    ++ans;
 }
 
 int main(void) {
+    int t,n;
     scanf("%d", &t);
 
     while(t--) {
         scanf("%d", &n);
 
+        vector<int> adj;
+        vector<bool> visited;
+        
+        int ans=0;
         adj.resize(n+1);
         visited.resize(n+1, false);
         for(int i=1; i<=n; ++i) {
@@ -77,8 +76,10 @@ int main(void) {
         }
 
         for(int i=1; i<=n; ++i) {
-            if(!visited[i])
-                search(i);
+            if(!visited[i]) {
+                search(i, adj, visited);
+                ++ans;
+            }
         }
 
         printf("%d\n", ans);
