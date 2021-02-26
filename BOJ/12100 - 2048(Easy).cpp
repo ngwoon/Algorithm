@@ -22,14 +22,12 @@ int play(vector<vector<int>> board, int depth) {
 
     int maxVal = 2;
     for(int i=0; i<n; ++i) {
-        int mvIdx = 0;
         for(int j=0; j<n; ++j) {
             if(tempBoard[i][j] == 0)
                 continue;
             
             int nearNum = 0;
             int nearIdx = n;
-            bool isComBined = false;
             for(int k=j+1; k<n; ++k) {
                 if(tempBoard[i][k] == 0)
                     continue;
@@ -74,7 +72,6 @@ int play(vector<vector<int>> board, int depth) {
             
             int nearNum = 0;
             int nearIdx = -1;
-            bool isCombined = false;
             for(int k=j-1; k>=0; --k) {
                 if(tempBoard[i][k] == 0)
                     continue;
@@ -119,7 +116,6 @@ int play(vector<vector<int>> board, int depth) {
             
             int nearNum = 0;
             int nearIdx = n;
-            bool isCombined = false;
             for(int k=i+1; k<n; ++k) {
                 if(tempBoard[k][j] == 0)
                     continue;
@@ -164,7 +160,6 @@ int play(vector<vector<int>> board, int depth) {
             
             int nearNum = 0;
             int nearIdx = -1;
-            bool isCombined = false;
             for(int k=i-1; k>=0; --k) {
                 if(tempBoard[k][j] == 0)
                     continue;
