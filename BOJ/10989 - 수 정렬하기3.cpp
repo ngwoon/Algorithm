@@ -2,7 +2,6 @@
 using namespace std;
 
 int arr[10001];
-
 int main(void) {
     int n;
     scanf("%d", &n);
