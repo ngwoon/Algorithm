@@ -9,12 +9,12 @@ int main(void) {
     string brackets = input;
 
     bool isWrong = false;
-    int temp = 1;
+    int weight = 1;
     int result = 0;
     for(int i=0; i<brackets.length(); ++i) {
         char cur = brackets[i];
         if(cur == '(' || cur == '[') {
-            temp *= cur == '(' ? 2 : 3;
+            weight *= cur == '(' ? 2 : 3;
             stk.push(cur);
         } else {
             if(stk.empty()) {
@@ -24,9 +24,9 @@ int main(void) {
             char before = stk.top();
             stk.pop();
             if((cur == ')' && before == '(') || (cur == ']' && before == '[')) {
-                if(!(brackets[i-1] == ')' || brackets[i-1] == ']'))
-                    result += temp;
-                temp /= cur == ')' ? 2 : 3;
+                if(brackets[i-1] == '(' || brackets[i-1] == '[')
+                    result += weight;
+                weight /= cur == ')' ? 2 : 3;
             } else {
                 isWrong = true;
                 break;
