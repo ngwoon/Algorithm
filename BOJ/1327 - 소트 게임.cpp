@@ -15,16 +15,11 @@ bool isAsc(string& seq) {
 
 string reverseSeq(string seq, int idx) {
     string newSeq;
-    printf("seq : %s, idx : %d\n", seq.c_str(), idx);
-    string front = idx-1 <= 0 ? "" : seq.substr(0, idx-1);
-    printf("front : %s\n", front.c_str());
+    string front = idx == 0 ? "" : seq.substr(0, idx);
     string sub = seq.substr(idx, k);
-    printf("sub : %s\n", sub.c_str());
-    string back = k+1 > n ? "" : seq.substr(k);
-    printf("back : %s\n", back.c_str());
+    string back = k+idx-1 == n ? "" : seq.substr(idx+k);
     reverse(sub.begin(), sub.end());
     newSeq.append(front).append(sub).append(back);
-    printf("newSeq : %s\n", newSeq.c_str());
     return newSeq;
 }
 
@@ -42,7 +37,7 @@ void bfs(string& start) {
         }
 
         for(int i=0; i<n; ++i) {
-            if(i + k - 1 <= n) {
+            if(i + k <= n) {
                 string next = reverseSeq(seq, i);
                 if(visited.find(next) != visited.end())
                     continue;
