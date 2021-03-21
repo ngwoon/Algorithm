@@ -1,125 +1,109 @@
 // {
 //     "version": "2.0.0",
-//     "runner": "terminal",
-//     "type": "shell",
-//     "echoCommand": true,
-//     "presentation": {
-//         "reveal": "always"
-//     },
 //     "tasks": [
 //         {
-//             "label": "save and compile for C++",
-//             "command": "g++",
-//             "args": [
-//                 "${file}",
-//                 "-o",
-//                 "${fileDirname}/${fileBasenameNoExtension}"
-//             ],
-//             "group": "build",
-//             "problemMatcher": {
-//                 "fileLocation": [
-//                     "relative",
-//                     "${workspaceRoot}"
-//                 ],
-//                 "pattern": {
-//                     "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning error):\\s+(.*)$",
-//                     "file": 1,
-//                     "line": 2,
-//                     "column": 3,
-//                     "severity": 4,
-//                     "message": 5
-//                 }
-//             }
-//         },
-//         {
-//             "label": "save and compile for C",
-//             "command": "gcc",
-//             "args": [
-//                 "${file}",
-//                 "-o",
-//                 "${fileDirname}/${fileBasenameNoExtension}"
-//             ],
-//             "group": "build",
-//             "problemMatcher": {
-//                 "fileLocation": [
-//                     "relative",
-//                     "${workspaceRoot}"
-//                 ],
-//                 "pattern": {
-//                     "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning error):\\s+(.*)$",
-//                     "file": 1,
-//                     "line": 2,
-//                     "column": 3,
-//                     "severity": 4,
-//                     "message": 5
-//                 }
-//             }
-//         },
-//         {
-//             "label": "execute",
-//             "command": "cmd",
-//             "group": "test",
-//             "args": [
-//                 "/C",
-//                 "${fileDirname}\\${fileBasenameNoExtension}"
-//             ]
-//         },
-//         {
-//             "type": "shell",
-//             "label": "C/C++: g++.exe build active file",
-//             "command": "C:/MinGW/bin/g++.exe",
+//             "type": "cppbuild",
+//             "label": "C/C++: g++ build active file",
+//             "command": "/usr/bin/g++",
 //             "args": [
 //                 "-g",
 //                 "${file}",
 //                 "-o",
-//                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
+//                 "${fileDirname}/${fileBasenameNoExtension}"
 //             ],
 //             "options": {
-//                 "cwd": "C:/MinGW/bin"
+//                 "cwd": "${workspaceFolder}"
 //             },
 //             "problemMatcher": [
 //                 "$gcc"
 //             ],
 //             "group": {
-//                 "kind": "build",
+//                 "kind": "test",
 //                 "isDefault": true
-//             }
-//         }
+//             },
+//             "detail": "compiler: /usr/bin/g++"
+//         },
+//         {
+//             "label": "execute",
+//             "command": "${fileDirname}/${fileBasenameNoExtension}",
+//             "group": "test",
+//             "problemMatcher": []
+//         },
 //     ]
 // }
 
 {
     "version": "2.0.0",
+    "runner": "terminal",
+    "type": "shell",
+    "echoCommand": true,
+    "presentation": {
+        "reveal": "always"
+    },
     "tasks": [
+        //C++ 컴파일
         {
-            "type": "cppbuild",
-            "label": "C/C++: g++ build active file",
-            "command": "/usr/bin/g++",
+            "label": "save and compile for C++",
+            "command": "g++",
             "args": [
-                "-g",
                 "${file}",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],
-            "options": {
-                "cwd": "${workspaceFolder}"
-            },
-            "problemMatcher": [
-                "$gcc"
-            ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "detail": "compiler: /usr/bin/g++"
+            "group": "build",
+            //컴파일시 에러를 편집기에 반영
+            //참고:   https://code.visualstudio.com/docs/editor/tasks#_defining-a-problem-matcher
+            "problemMatcher": {
+                "fileLocation": [
+                    "relative",
+                    "${workspaceRoot}"
+                ],
+                "pattern": {
+                    // The regular expression. 
+                    //Example to match: helloWorld.c:5:3: warning: implicit declaration of function 'prinft'
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            }
         },
+        //C 컴파일
+        {
+            "label": "save and compile for C",
+            "command": "gcc",
+            "args": [
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}"
+            ],
+            "group": "build",
+            //컴파일시 에러를 편집기에 반영
+            //참고:   https://code.visualstudio.com/docs/editor/tasks#_defining-a-problem-matcher
+            "problemMatcher": {
+                "fileLocation": [
+                    "relative",
+                    "${workspaceRoot}"
+                ],
+                "pattern": {
+                    // The regular expression. 
+                    //Example to match: helloWorld.c:5:3: warning: implicit declaration of function 'prinft'
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            }
+        },
+        // // 바이너리 실행(Windows)
         {
             "label": "execute",
             "command": "${fileDirname}/${fileBasenameNoExtension}",
-            "group": {
-                "kind": "test",
-                "isDefault": true
-            }
-       }
+            "group": "test"
+        }
     ]
 }
