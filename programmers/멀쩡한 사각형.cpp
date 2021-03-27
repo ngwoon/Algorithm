@@ -19,8 +19,8 @@ long long solution(int w,int h) {
     
     int p = w / dw;
     long long cut = p * (dh + dw - 1);
-    if(w % dw != 0)
-        cut += (dh + dw);
+    // if(w % dw != 0)
+    //     cut += (dh + dw);
 
     answer = (long long)h * w - cut;
 
