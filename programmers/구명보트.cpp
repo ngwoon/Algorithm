@@ -4,12 +4,13 @@ using namespace std;
 int solution(vector<int> people, int limit) {
     sort(people.begin(), people.end());
     int boat=0;
-    while(!people.empty()) {
-        if(people.size() != 1) {
-            if(people.back() + people.front() <= limit)
-                people.erase(people.begin());
+    int frontIdx=0, backIdx=people.size()-1;
+    while(frontIdx <= backIdx) {
+        if(frontIdx != backIdx) {
+            if(people[backIdx] + people[frontIdx] <= limit)
+                ++frontIdx;
         }
-        people.pop_back();
+        --backIdx;
         ++boat;
     }
     return boat;
