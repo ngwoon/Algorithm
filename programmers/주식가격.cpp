@@ -1,7 +1,6 @@
 #include <string>
 #include <vector>
 #include <stack>
-
 using namespace std;
 
 vector<int> solution(vector<int> prices) {
@@ -27,4 +26,15 @@ vector<int> solution(vector<int> prices) {
     }
     
     return answer;
+}
+
+int main(void) {
+    int n;
+    scanf("%d", &n);
+
+    vector<int> prices(n);
+    for(int i=0; i<n; ++i)
+        scanf("%d", &prices[i]);
+    
+    solution(prices);
 }
