@@ -16,6 +16,7 @@ int main(void) {
             scanf(" %c", &candies[i][j]);
     }
 
+    // 행 검사
     for(int i=0; i<n; ++i) {
         int temp=0;
         for(int j=0; j<n-1; ++j) {
@@ -32,6 +33,7 @@ int main(void) {
         ans = ans < temp ? temp : ans;
     }
 
+    // 열 검사
     for(int j=0; j<n; ++j) {
         int temp=0;
         for(int i=0; i<n-1; ++i) {
@@ -51,7 +53,6 @@ int main(void) {
     // 같은 행 캔디 바꾸기
     for(int i=0; i<n; ++i) {
         for(int j=0; j<n-1; ++j) {
-
             if(candies[i][j] == candies[i][j+1])
                 continue;
 
