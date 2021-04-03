@@ -4,20 +4,20 @@
 
 using namespace std;
 
-int solution(vector<vector<string>> src) {
+int solution(vector<vector<string>> clothes) {
     int answer = 1;
 
-    map<string, int> clothes;
+    map<string, int> cmap;
 
-    for(int i=0; i<src.size(); ++i) {
-        auto iter = clothes.find(src[i][1]);
-        if(iter != clothes.end())
+    for(int i=0; i<clothes.size(); ++i) {
+        auto iter = cmap.find(clothes[i][1]);
+        if(iter != cmap.end())
             ++iter->second;
         else
-            clothes.insert({src[i][1], 1});
+            cmap.insert({clothes[i][1], 1});
     }
 
-    for(auto iter=clothes.begin(); iter!=clothes.end(); ++iter)
+    for(auto iter=cmap.begin(); iter!=cmap.end(); ++iter)
         answer *= iter->second + 1;
     
 
