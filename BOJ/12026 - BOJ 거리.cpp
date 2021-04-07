@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int ans = INT_MAX;
 int n;
 char str[1001];
 vector<vector<pair<int, int>>> adj;
