@@ -90,13 +90,5 @@ int main(void) {
         }
     }
 
-    for(int i=0; i<n; ++i)
-        printf("%d ", arr[i]);
-    printf("\n");
-
-    for(int i=0; i<n; ++i)
-        printf("%d ", dp[i]);
-    printf("\n");
-
     printf("%d", dp[n-1] == MAX ? -1 : dp[n-1]);
 }
