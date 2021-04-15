@@ -1,52 +1,50 @@
 #include <string>
 #include <vector>
-#include <iostream>
 
 using namespace std;
 
-int dfs(vector<bool>& visited, string name, int dir, int idx, int sum) {
+pair<int, int> getNearestIdx(string name, int idx) {
     int n = name.size();
-    bool isAllChecked = true;
-    for(int i=0; i<n; ++i) {
-        if(!visited[i]) {
-            isAllChecked = false;
+
+    pair<int, int> right = {-1, 0};
+    pair<int, int> left = {-1, 0};
+    for(int i=1; i<name.size(); ++i) {
+        int nidx = (idx + i) % n;
+        if(name[nidx] != 'A') {
+            right = {nidx, i};
             break;
         }
     }
-    if(isAllChecked)
-        return sum-1;
-    
-    int gap = name[idx] - 'A';
-    int rgap = 26 - gap;
-    if(gap > rgap)
-        gap = rgap;
-    sum += gap;
-    visited[idx] = true;
 
-    idx += dir;
-    if(idx >= n)
-        idx = 0;
-    else if(idx < 0)
-        idx = n-1;
+    for(int i=1; i<name.size(); ++i) {
+        int nidx = (idx - i);
+        nidx = nidx < 0 ? nidx + n : nidx;
+        if(name[nidx] != 'A') {
+            left = {nidx, i};
+            break;
+        }
+    }
 
-    return dfs(visited, name, dir, idx, sum+1);
+    if(right.second > left.second)
+        return left;
+    else
+        return right;
 }
 
 int solution(string name) {
     int n = name.size();
-    vector<bool> visited(n);
+    int answer = 0;
+    pair<int, int> cur = {0,0};
+    while(cur.first != -1) {
+        answer += cur.second;
 
-    visited.resize(n, false);
-    for(int i=0; i<n; ++i) {
-        if(name[i] == 'A')
-            visited[i] = true;
+        int gap = name[cur.first] - 'A';
+        int rgap = 26 - gap;
+        gap = gap < rgap ? gap : rgap;
+
+        answer += gap;
+        name[cur.first] = 'A';
+        cur = getNearestIdx(name, cur.first);
     }
-
-    vector<bool> temp(n);
-    copy(visited.begin(), visited.end(), temp.begin());
-    int a = dfs(temp, name, 1, 0, 0);
-    copy(visited.begin(), visited.end(), temp.begin());
-    int b = dfs(temp, name, -1, 0, 0);
-
-    return a < b ? a : b;
+    return answer;
 }
