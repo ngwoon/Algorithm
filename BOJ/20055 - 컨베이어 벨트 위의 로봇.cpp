@@ -1,75 +1,58 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-pair<bool, int> conveyor[200];
+vector<int> conveyor;
+vector<bool> visited;
+int s,e;
 int broken, step;
 int n, k;
-
-void printConveyor() {
-    for(int i=0; i<n; ++i) {
-        printf("%c ", (conveyor[i].first ? 'r' : '0'));
-    }
-    printf("\n");
-
-    for(int i=0; i<n; ++i) {
-        printf("%d ", conveyor[i].second);
-    }
-    printf("\n\n");
-}
 
 int main(void) {
     scanf("%d %d", &n, &k);
 
-    for(int i=0; i<2*n; ++i) {
-        int durability;
-        scanf("%d", &durability);
-        conveyor[i] = {false, durability};
-    }
+    conveyor.resize(2*n);
+    for(int i=0; i<2*n; ++i)
+        scanf("%d", &conveyor[i]);
 
-    while(1) {
+    visited.resize(2*n);
+    s = 0; e = n-1;
+    while(broken < k) {
         ++step;
+        
+        // 컨베이어 움직이기 전 내릴 위치에 로봇 있으면 내리기
+        if(visited[e])
+            visited[e] = false;
 
-        // 컨베이어 벨트 움직임
-        pair<bool, int> prev = conveyor[0];
-        for(int i=0; i<2*n; ++i) {
-            int nextIdx = (i+1) % (2*n);
+        // 컨베이어 움직임
+        s = (s + 2*n - 1) % (2*n);
+        e = (e + 2*n - 1) % (2*n);
 
-            if(i == n-1 && conveyor[i].first)
-                conveyor[i].first = false;
-            
-            pair<bool, int> temp = conveyor[nextIdx];
-            conveyor[nextIdx] = prev;
-            prev = temp;
-        }
-    
-        // 로봇 움직임
-        for(int i=n-2; i>=0; --i) {
-            if(conveyor[i].first) {
-                if(!conveyor[i+1].first && conveyor[i+1].second > 0) {
-                    conveyor[i].first = false;
-                    conveyor[i+1].first = true;
-                    --conveyor[i+1].second;
-
-                    if(conveyor[i+1].second == 0)
-                        ++broken;
+        int te = e, ts = s;
+        while(te != ts) {
+            if(visited[te]) {
+                if(te == e)
+                    visited[te] = false;
+                else {
+                    int ne = (te + 1) % (2*n);
+                    if(!visited[ne] && conveyor[ne] > 0) {
+                        visited[te] = false;
+                        visited[ne] = true;
+                        conveyor[ne] -= 1;
+                        if(conveyor[ne] == 0)
+                            ++broken;
+                    }
                 }
             }
-        }
-        if(broken >= k) {
-            printf("%d", step);
-            break;
+            te = (te + 2*n - 1) % (2*n);
         }
 
-        // 올라가는 칸에 로봇 올릴지 말지 결정
-        if(!conveyor[0].first && conveyor[0].second > 0) {
-            conveyor[0] = {true, conveyor[0].second - 1};
-            if(conveyor[0].second == 0)
+        // 올라가는 위치에 로봇 놓기
+        if(!visited[s] && conveyor[s] > 0) {
+            visited[s] = true;
+            conveyor[s] -= 1;
+            if(conveyor[s] == 0)
                 ++broken;
         }
-        
-        if(broken >= k) {
-            printf("%d", step);
-            break;
-        }
     }
+    printf("%d", step);
 }
