@@ -3,6 +3,7 @@
 #include <map>
 #include <queue>
 #include <algorithm>
+#include <iostream>
 using namespace std;
 
 bool comp(pair<int, int>& a, pair<int, int>& b) {
@@ -60,5 +61,20 @@ vector<int> solution(vector<string> genres, vector<int> plays) {
 }
 
 int main(void) {
+    int n;
+    scanf("%d", &n);
 
+    vector<string> genres(n);
+    vector<int> plays(n);
+    for(int i=0; i<n; ++i) {
+        cin >> genres[i];
+    }
+    for(int i=0; i<n; ++i) {
+        scanf("%d", &plays[i]);
+    }
+
+    auto v = solution(genres, plays);
+    for(int i=0; i<v.size(); ++i) {
+        printf("%d ", v[i]);
+    }
 }
