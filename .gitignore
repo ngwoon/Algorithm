@@ -1,11 +1,8 @@
-# Ignore all
-*
+.idea/
 
-# Unignore all with extensions
-!*.*
+.vscode/
 
-# Unignore all dirs
-!*/
+out/
 
 # Ignore exe
 *.exe
