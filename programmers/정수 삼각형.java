@@ -8,6 +8,10 @@
         * j가 0일 때, dp[i][j] = triangle[i][j] + dp[i-1][j]
         * j가 i일 때(해당 줄의 마지막 원소), dp[i][j] = triangle[i][j] + dp[i-1][j-1]
         * 그 외의 경우, dp[i][j] = Math.max(triangle[i][j] + dp[i-1][j-1], triangle[i][j] + dp[i-1][j])
+
+    <더 나은 풀이>
+    풀이 자체는 내가 사용한 방법과 거의 비슷했는데, 코딩 방식 중 Arrays.stream()을 사용하여 최대값을 찾는 코드가 인상깊어서 기록해둔다.
+    Arrays.stream(triangle[triangle.length-1]).max().getAsInt();
  */
 
 class IntegerTriangle {
