@@ -34,6 +34,8 @@ import java.util.List;
         4. 만약 3번까지 해당하지 않는다면, 현재 설정된 mid가 최대 트래픽의 최솟값이 될 수 없음을 의미한다. 즉, mid의 재설정이 필요하다.
 
     파라메트릭 서치로 mid를 설정하면서, 매번 설정된 mid에 대해 트리를 후위 탐색하면서 위와 같은 방식으로 dp를 채우고, 가능 여부를 판단하여 문제를 풀 수 있다.
+
+    참고한 블로그 : https://loosie.tistory.com/188
  */
 
 class DividingExamRoom {
