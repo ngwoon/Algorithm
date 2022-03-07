@@ -129,3 +129,104 @@ class MaximizeExpression {
         return Math.abs(nums.pop());
     }
 }
+
+//import java.util.*;
+//
+//class MaximizeExpression {
+//
+//    private static Map<Integer, Character> exPriority;
+//    private static List<Character> operators;
+//    private static List<Long> operands;
+//    private static long ans;
+//
+//    public static long solution(String expression) {
+//        exPriority = new HashMap<>();
+//        operators = new ArrayList<>();
+//        operands = new ArrayList<>();
+//        splitOps(expression);
+//        dfs(0, "*+-");
+//        return ans;
+//    }
+//
+//    public static void splitOps(String expression) {
+//        int idx=0;
+//        while(idx < expression.length()) {
+//            int e = idx + 1;
+//            while(e < expression.length() &&
+//                    expression.charAt(e) != '*' &&
+//                    expression.charAt(e) != '+' &&
+//                    expression.charAt(e) != '-') {
+//                ++e;
+//            }
+//            operands.add(Long.parseLong(expression.substring(idx, e)));
+//            if(e + 1 < expression.length()) {
+//                operators.add(expression.charAt(e));
+//            }
+//            idx = e + 1;
+//        }
+//    }
+//
+//    public static void dfs(int depth, String operators) {
+//        if(depth == 3) {
+//            calc();
+//        }
+//
+//        for(int i=0; i<3; ++i) {
+//            if(exPriority.containsKey(i)) {
+//                continue;
+//            }
+//            exPriority.put(i, operators.charAt(depth));
+//            dfs(depth + 1, operators);
+//            exPriority.remove(i);
+//        }
+//    }
+//
+//    public static void calc() {
+//        Stack<Long> opda = new Stack<>();
+//        Stack<Character> opta = new Stack<>();
+//        Stack<Long> opdb = new Stack<>();
+//        Stack<Character> optb = new Stack<>();
+//
+//        for(int i=operands.size()-1; i>=0; --i) {
+//            opda.add(operands.get(i));
+//        }
+//        for(int i=operators.size()-1; i>=0; --i) {
+//            opta.add(operators.get(i));
+//        }
+//
+//        for(int p=0; p<3; ++p) {
+//            char opt = exPriority.get(p);
+//
+//            int size = opta.size();
+//            for(int i=0; i<size; ++i) {
+//                long a = opda.pop();
+//                long b = opda.pop();
+//                char c = opta.pop();
+//                if(opt == c) {
+//                    long result;
+//                    if(opt == '*') {
+//                        result = a * b;
+//                    } else if(opt == '+') {
+//                        result = a + b;
+//                    } else {
+//                        result = a - b;
+//                    }
+//                    opda.add(result);
+//                } else {
+//                    opdb.add(a);
+//                    opda.add(b);
+//                    optb.add(c);
+//                }
+//            }
+//
+//            while(!opdb.isEmpty()) {
+//                opda.add(opdb.pop());
+//            }
+//            while(!optb.isEmpty()) {
+//                opta.add(optb.pop());
+//            }
+//        }
+//
+//        ans = Math.max(ans, Math.abs(opda.peek()));
+//    }
+//}
