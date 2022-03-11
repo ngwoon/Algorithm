@@ -1,6 +1,6 @@
 package 카카오_인턴쉽_2020;
 
-import java.util.HashMap;
+import java.util.*;
 
 /*
     보석 진열대의 진열된 보석 배열이 주어질 때, 진열대에 놓여진 모든 보석 종류를 포함하는 가장 짧은 연속된 구간을 찾는 문제.
@@ -56,3 +56,41 @@ class GemShopping {
         return ans;
     }
 }
+
+//import java.util.*;
+//
+//class Solution {
+//
+//    Map<String, Integer> gemCnt;
+//
+//    public int[] solution(String[] gems) {
+//        gemCnt = new HashMap<>();
+//
+//        Set<String> gemCategories = new HashSet<>(Arrays.asList(gems));
+//
+//        int s = 0, e = 0;
+//        int ansMin = 100001;
+//        int[] ans = new int[2];
+//        while(e < gems.length) {
+//            gemCnt.put(gems[e], gemCnt.getOrDefault(gems[e], 0) + 1);
+//            while(true) {
+//                int cnt = gemCnt.getOrDefault(gems[s], 0);
+//                if(cnt > 1) {
+//                    gemCnt.put(gems[s], cnt - 1);
+//                    ++s;
+//                } else {
+//                    break;
+//                }
+//            }
+//
+//            if(gemCnt.keySet().size() == gemCategories.size() && (e-s+1) < ansMin) {
+//                ansMin = (e-s+1);
+//                ans[0] = s+1; ans[1] = e+1;
+//            }
+//
+//            ++e;
+//        }
+//
+//        return ans;
+//    }
+//}
