@@ -34,14 +34,12 @@ class DivideNetwork {
             adj.get(wire[0]).remove(adj.get(wire[0]).indexOf(wire[1]));
             adj.get(wire[1]).remove(adj.get(wire[1]).indexOf(wire[0]));
 
+            // wire[0]랑 wire[1]이 나뉘어져 있음을 알 수 있기 때문에, for문을 사용해서 모든 노드를 탐색하기보다
+            // wire[0]와 wire[1]에 대해 bfs를 수행하는게 더 효율적이다.
             boolean[] visited = new boolean[n+1];
             int[] group = new int[2];
-            int gIdx = 0;
-            for(int i=1; i<=n; ++i) {
-                if(!visited[i]) {
-                    group[gIdx++] = bfs(i, visited);
-                }
-            }
+            group[0] = bfs(wire[0], visited);
+            group[1] = bfs(wire[1], visited);
 
             ans = Math.min(ans, Math.abs(group[0] - group[1]));
 
