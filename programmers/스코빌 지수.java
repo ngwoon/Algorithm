@@ -1,6 +1,6 @@
 import java.util.PriorityQueue;
 
-class Solution {
+class ScovileScore {
     public int solution(int[] scoville, int K) {
         int answer = 0;
 
